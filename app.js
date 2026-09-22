@@ -61,7 +61,7 @@
       const br = b.getBoundingClientRect();
       if (cx >= br.left && cx <= br.right && cy >= br.top && cy <= br.bottom) onBlue = true;
     });
-    fab.style.color = onBlue || menuOpen ? '#FFFFFF' : 'var(--primary)';
+    fab.style.color = onBlue || menuOpen ? '#FFFFFF' : 'var(--ink)';
   }
 
   /* ---------- shareable-highlights: scale-in + inner parallax ---------- */
@@ -113,7 +113,7 @@
         el.style.opacity = current ? '1' : '0.4';
         if (num) {
           num.style.background = current ? 'var(--primary)' : 'var(--settled-bg)';
-          num.style.color = current ? '#fff' : 'var(--settled-fg)';
+          num.style.color = current ? '#fff' : 'var(--ink)';
         }
         if (media) {
           const rc = rects[i];
@@ -153,7 +153,7 @@
         const reached = i <= pos + 0.5;
         num.style.transition = 'background 320ms ease, color 320ms ease';
         num.style.background = reached ? 'var(--primary)' : 'var(--settled-bg)';
-        num.style.color = reached ? '#fff' : 'var(--settled-fg)';
+        num.style.color = reached ? '#fff' : 'var(--ink)';
       }
     });
     if (rail) {
@@ -194,7 +194,7 @@
       const glyph = $('[data-r="faq-glyph"]', item);
       const panel = $('[data-r="faq-panel"]', item);
       item.toggleAttribute('data-open', open);
-      if (icon) { icon.style.background = open ? 'var(--primary)' : 'var(--settled-bg)'; icon.style.color = open ? '#fff' : 'var(--settled-fg)'; }
+      if (icon) { icon.style.background = open ? 'var(--primary)' : 'var(--settled-bg)'; icon.style.color = open ? '#fff' : 'var(--ink)'; }
       if (glyph) glyph.style.transform = `rotate(${open ? 45 : 0}deg)`;
       if (panel) { panel.style.maxHeight = open ? '260px' : '0px'; panel.style.opacity = open ? '1' : '0'; }
     };

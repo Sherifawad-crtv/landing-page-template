@@ -44,6 +44,18 @@ design used two saturated brand hues (blue + orange) but BizQwik has one
   instead of `--primary`, so it still reads as a distinct "beat" from the
   hero/footer/Inside SEE sections that share `--primary`.
 
+All body text is single-color: `var(--ink)` on the light `--paper` sections,
+plain white on the saturated `--primary`/`--primary-pressed` panels (hero,
+highlights, Inside SEE, For clubs, footer, privacy hero/contact-card) — text
+color there can't be forced black without going unreadable, so white is kept
+as the one exception. There's no more accent-purple text anywhere; `--primary`
+is now used only for backgrounds, borders, and the small decorative eyebrow
+dots. Every "subtitle" element — eyebrow/kicker labels, the tagline under each
+heading, FAQ answers, footer labels/copyright, and privacy-page body copy —
+uses `--font-mono` (Space Mono), matching how BizQwik's own components use
+mono for secondary/label text; headings (h1/h2/h3) and nav/button labels stay
+on `--font-body` (Urbanist).
+
 ## Notes on the port
 - The prototype's `x-dc` framework, `{{ }}` bindings and `style-hover` attributes
   were converted to plain HTML/CSS/JS.

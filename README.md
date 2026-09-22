@@ -12,6 +12,12 @@ Static implementation of the `See Padel.dc.html` Claude Design handoff.
   highlight scale-in, scrubbed "how it works" steps, FAQ accordion, wordmark fit,
   mobile menu)
 - `assets/` — images + Obviously font (only the assets the page references)
+- `assets/foundation-tokens.css` — BizQwik's foundation design tokens (colors,
+  radii, fonts, shadows), ported from `github.com/Sherifawad-crtv/bizqwik`'s
+  `src/index.css`. Linked in `<head>` alongside `styles.css`, but not yet wired
+  into the page's markup — the page still uses its own hardcoded See Padel
+  colors/fonts. Use these `--paper`/`--primary`/`--ink`/etc. custom properties
+  as the palette when reskinning this template for a new brand.
 
 ## Run
 ```

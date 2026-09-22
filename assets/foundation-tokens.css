@@ -1,0 +1,48 @@
+/* Bizqwik Foundation tokens
+   Ported from github.com/Sherifawad-crtv/bizqwik (src/index.css).
+   Pair with the Google Fonts link in <head>:
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+*/
+
+:root {
+  --paper: #f3f2ee;
+  --surface: #fbfaf7;
+  --sunken: #ecebe5;
+  --line: #e3e1da;
+  --ink: #1a1726;
+  --ink-muted: #6c687a;
+  --ink-faint: #9a96a6;
+  --primary: #5a41ff;
+  --primary-pressed: #4832d6;
+  --primary-tint: rgba(90, 65, 255, 0.1);
+  --primary-tint-strong: rgba(90, 65, 255, 0.12);
+  --avatar-grad: linear-gradient(135deg, #7b5cff, #4a2fe0);
+
+  --logging-fg: #946200;
+  --logging-bg: #f6e7c4;
+  --settled-fg: #4832d6;
+  --settled-bg: rgba(90, 65, 255, 0.12);
+  --paid-fg: #177a4b;
+  --paid-bg: #d8efe0;
+  --danger-fg: #b23a3a;
+  --danger-bg: #f6dedc;
+
+  --r-tile: 16px;
+  --r-input: 20px;
+  --r-button: 24px;
+  --r-card: 28px;
+
+  --font-body: "Urbanist", system-ui, sans-serif;
+  --font-mono: "Space Mono", ui-monospace, monospace;
+
+  --shadow-float: 0 14px 34px rgba(26, 23, 38, 0.18);
+  /* Same shadow as --shadow-float, as a filter instead of box-shadow — for a
+     wrapper around a [data-sq] element. box-shadow gets clipped away by the
+     squircle clip-path polyfill (clip-path clips box-shadow too); drop-shadow
+     traces the clipped child's actual silhouette instead, so it must live on
+     an unclipped ancestor, never on the [data-sq] element itself. */
+  --shadow-float-filter: drop-shadow(0 14px 34px rgba(26, 23, 38, 0.18));
+  --shadow-card: 0 24px 60px rgba(26, 23, 38, 0.1);
+}

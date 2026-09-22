@@ -1,7 +1,9 @@
 /* See Padel — landing page behaviour
    Vanilla-JS port of the scroll/interaction logic from the Claude Design
    prototype (See Padel.dc.html). Theme props baked to their defaults:
-   accentColor #F5821F, heroFrame "Framed", scaleFrom 0.86, parallax 48. */
+   heroFrame "Framed", scaleFrom 0.86, parallax 48. Colors reference
+   BizQwik's foundation tokens (assets/foundation-tokens.css) so JS-driven
+   style changes stay in sync with the CSS palette. */
 
 (() => {
   'use strict';
@@ -59,7 +61,7 @@
       const br = b.getBoundingClientRect();
       if (cx >= br.left && cx <= br.right && cy >= br.top && cy <= br.bottom) onBlue = true;
     });
-    fab.style.color = onBlue || menuOpen ? '#FFFFFF' : '#0052C9';
+    fab.style.color = onBlue || menuOpen ? '#FFFFFF' : 'var(--primary)';
   }
 
   /* ---------- shareable-highlights: scale-in + inner parallax ---------- */
@@ -110,8 +112,8 @@
         const current = i === best;
         el.style.opacity = current ? '1' : '0.4';
         if (num) {
-          num.style.background = current ? '#0052C9' : 'rgba(11,42,91,0.10)';
-          num.style.color = current ? '#fff' : '#0B2A5B';
+          num.style.background = current ? 'var(--primary)' : 'var(--settled-bg)';
+          num.style.color = current ? '#fff' : 'var(--settled-fg)';
         }
         if (media) {
           const rc = rects[i];
@@ -150,8 +152,8 @@
       if (num) {
         const reached = i <= pos + 0.5;
         num.style.transition = 'background 320ms ease, color 320ms ease';
-        num.style.background = reached ? '#0052C9' : 'rgba(11,42,91,0.10)';
-        num.style.color = reached ? '#fff' : '#0B2A5B';
+        num.style.background = reached ? 'var(--primary)' : 'var(--settled-bg)';
+        num.style.color = reached ? '#fff' : 'var(--settled-fg)';
       }
     });
     if (rail) {
@@ -192,7 +194,7 @@
       const glyph = $('[data-r="faq-glyph"]', item);
       const panel = $('[data-r="faq-panel"]', item);
       item.toggleAttribute('data-open', open);
-      if (icon) { icon.style.background = open ? '#F5821F' : 'rgba(11,42,91,0.08)'; icon.style.color = open ? '#fff' : '#0B2A5B'; }
+      if (icon) { icon.style.background = open ? 'var(--primary)' : 'var(--settled-bg)'; icon.style.color = open ? '#fff' : 'var(--settled-fg)'; }
       if (glyph) glyph.style.transform = `rotate(${open ? 45 : 0}deg)`;
       if (panel) { panel.style.maxHeight = open ? '260px' : '0px'; panel.style.opacity = open ? '1' : '0'; }
     };

@@ -1,16 +1,15 @@
 /* See Padel — landing page styles
    Ported from the Claude Design handoff (See Padel.dc.html).
-   Theme baked to the design defaults: accent #F5821F, framed hero, Glass overlay. */
-
-@font-face { font-family:'Obviously'; src:url('./assets/fonts/Obviously-Bold.otf') format('opentype'); font-weight:700; font-style:normal; font-display:swap; }
-@font-face { font-family:'Obviously'; src:url('./assets/fonts/Obviously-BoldItalic.otf') format('opentype'); font-weight:700; font-style:italic; font-display:swap; }
+   Palette/type repainted to BizQwik's foundation tokens
+   (see assets/foundation-tokens.css): primary purple, paper/ink neutrals,
+   Urbanist/Space Mono type, and the r-tile/r-button/r-card radius scale. */
 
 html, body { margin:0; padding:0; height:auto; min-height:100%; overflow:visible; overflow-x:clip; }
-body { background:#0052C9; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; }
+body { background:var(--primary); -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; }
 *, *::before, *::after { box-sizing:border-box; }
 img { max-width:100%; }
-a { color:#FFFFFF; text-decoration:none; }
-a:hover { color:#F5821F; }
+a { color:#fff; text-decoration:none; }
+a:hover { color:var(--primary); }
 html { scroll-behavior:smooth; }
 
 /* ---- Hero noise field ---- */
@@ -35,19 +34,19 @@ html { scroll-behavior:smooth; }
     display:inline-block;
     transition:transform 320ms cubic-bezier(0.22,1,0.36,1);
   }
-  [data-r="cta"] > a:hover, [data-r="cta2-buttons"] > a:hover { border-radius:24px; }
-  [data-r="signin"]:hover { border-radius:16px; }
+  [data-r="cta"] > a:hover, [data-r="cta2-buttons"] > a:hover { border-radius:var(--r-button); }
+  [data-r="signin"]:hover { border-radius:var(--r-tile); }
   [data-r="cta"] > a:hover > span, [data-r="cta2-buttons"] > a:hover > span, [data-r="signin"]:hover > span { transform:translateX(6px); }
 }
-[data-r="signin"]:hover { background:#ff9436; color:#fff; }
-[data-r="cta"] a.is-primary:hover { background:#ff9436; color:#fff; }
+[data-r="signin"]:hover { background:var(--sunken); color:var(--ink); }
+[data-r="cta"] a.is-primary:hover { background:var(--sunken); color:var(--ink); }
 [data-r="cta"] a.is-ghost:hover { background:rgba(255,255,255,0.18); color:#fff; border-color:#fff; }
-[data-r="cta2-buttons"] a:hover { background:#0a63e0; color:#fff; }
-[data-r="faq-item"] button:hover span:first-child { color:#0052C9; }
+[data-r="cta2-buttons"] a:hover { background:var(--sunken); color:var(--ink); }
+[data-r="faq-item"] button:hover span:first-child { color:var(--primary); }
 
 /* ---- FAB / burger / mobile menu ---- */
 [data-r="fab"][data-on="true"] { transform:translateY(0) !important; pointer-events:auto !important; }
-@media (hover:hover) and (pointer:fine) { [data-r="fab"]:hover { border-radius:18px; } }
+@media (hover:hover) and (pointer:fine) { [data-r="fab"]:hover { border-radius:var(--r-tile); } }
 [data-r="burger"] > span { transition:transform 380ms cubic-bezier(0.22,1,0.36,1), opacity 220ms ease; }
 [data-r="burger"][data-x="true"] > span:nth-child(1) { transform:translateY(7px) rotate(45deg); }
 [data-r="burger"][data-x="true"] > span:nth-child(2) { opacity:0; transform:scaleX(0.4); }
@@ -57,7 +56,7 @@ html { scroll-behavior:smooth; }
 [data-r="fab"][data-x="true"] > span:nth-child(2) { opacity:0; transform:scaleX(0.4); }
 [data-r="fab"][data-x="true"] > span:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
 [data-r="fabmenu"][data-open="true"] { opacity:1 !important; visibility:visible !important; pointer-events:auto !important; transition-delay:0s !important; }
-[data-r="fabmenu"] a:hover { color:#F5821F; }
+[data-r="fabmenu"] a:hover { color:var(--primary); }
 
 /* ---- Keyframes for the hero intro ---- */
 @keyframes heroDown { from { opacity:0; transform:translateY(-26px); filter:blur(14px); } to { opacity:1; transform:translateY(0); filter:blur(0); } }
@@ -76,7 +75,7 @@ html { scroll-behavior:smooth; }
    ===================================================================== */
 @media (max-width:767px) {
   [data-r="nav"] { display:none !important; }
-  [data-r="nav"][data-open="never"] { display:flex !important; position:absolute !important; top:100% !important; left:0 !important; right:0 !important; flex-direction:column !important; align-items:flex-start !important; gap:22px !important; background:#0D52D9 !important; border-bottom:2px solid #fff !important; padding:24px 22px !important; z-index:20 !important; }
+  [data-r="nav"][data-open="never"] { display:flex !important; position:absolute !important; top:100% !important; left:0 !important; right:0 !important; flex-direction:column !important; align-items:flex-start !important; gap:22px !important; background:var(--primary-pressed) !important; border-bottom:2px solid #fff !important; padding:24px 22px !important; z-index:20 !important; }
   [data-r="burger"] { display:flex !important; }
   [data-r="header"] { position:relative !important; padding:16px 20px !important; gap:14px !important; }
   [data-r="logo"] { height:34px !important; }
@@ -118,7 +117,7 @@ html { scroll-behavior:smooth; }
   [data-r="footer-copy-m"] { display:block !important; order:3 !important; position:relative !important; z-index:2 !important; margin-top:18px !important; }
   [data-r="footer-nav"] { display:none !important; }
   [data-r="footer-nav-m"] { display:flex !important; grid-column:1 / -1 !important; margin-bottom:6px !important; }
-  [data-r="footer-wordmark"] { color:#F2F0EA !important; -webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 56%,rgba(0,0,0,0.35) 82%,rgba(0,0,0,0) 100%) !important; mask-image:linear-gradient(to bottom,#000 0%,#000 56%,rgba(0,0,0,0.35) 82%,rgba(0,0,0,0) 100%) !important; }
+  [data-r="footer-wordmark"] { color:var(--paper) !important; -webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 56%,rgba(0,0,0,0.35) 82%,rgba(0,0,0,0) 100%) !important; mask-image:linear-gradient(to bottom,#000 0%,#000 56%,rgba(0,0,0,0.35) 82%,rgba(0,0,0,0) 100%) !important; }
   [data-r="footer-social"] { gap:14px !important; flex-wrap:wrap !important; }
 
   [data-r="faq"] { grid-template-columns:1fr !important; gap:26px !important; }
@@ -169,11 +168,11 @@ html { scroll-behavior:smooth; }
 }
 
 /* ---- Privacy page ---- */
-body.legal { background:#F4F4F5; }
-body.legal a { color:#0052C9; }
-body.legal a:hover { color:#F5821F; }
+body.legal { background:var(--paper); }
+body.legal a { color:var(--primary); }
+body.legal a:hover { color:var(--primary-pressed); }
 body.legal [data-r="hero"] a, body.legal [data-r="footer"] a, body.legal [data-r="contact-card"] a { color:#fff; }
-body.legal [data-r="hero"] a:hover, body.legal [data-r="footer"] a:hover, body.legal [data-r="contact-card"] a:hover { color:#F5821F; }
+body.legal [data-r="hero"] a:hover, body.legal [data-r="footer"] a:hover, body.legal [data-r="contact-card"] a:hover { color:var(--paper); }
 @media (max-width:767px) {
   body.legal [data-r="h1"] { font-size:min(13vw,60px) !important; }
   body.legal [data-r="meta"] { grid-template-columns:1fr !important; gap:14px !important; }
